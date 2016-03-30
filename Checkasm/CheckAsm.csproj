@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3464ED2D-1850-4848-9BC6-21B275BC8A88}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CheckAsm</RootNamespace>
+    <AssemblyName>CheckAsm</AssemblyName>
+    <SignManifests>false</SignManifests>
+    <SignAssembly>false</SignAssembly>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>false</GenerateManifests>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <ApplicationIcon>checkasm.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>ftp://taygeta.flyweb.cz/domains/checkasm/bins/install/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://checkasm.booring.net/bins/install/</InstallUrl>
+    <SupportUrl>http://checkasm.booring.net</SupportUrl>
+    <TargetCulture>en-US</TargetCulture>
+    <ProductName>CheckAsm</ProductName>
+    <PublisherName>booring.net</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.7.3899.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;FREE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>Migrated rules for CheckAsm.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;FREE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>35EDE482F8180DDDA1DB61EBC10A00BFA670690B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CheckAsm_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Licensed|AnyCPU'">
+    <OutputPath>bin\Release-Licensed\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-Licensed|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug-Licensed\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-Eval|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug-Eval\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;TRACE;DEBUG;EVAL</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for CheckAsm.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Eval|AnyCPU'">
+    <OutputPath>bin\Release-Eval\</OutputPath>
+    <DefineConstants>TRACE;EVAL</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdRotator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdRotator.Designer.cs">
+      <DependentUpon>AdRotator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnalyzeDirReferencesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnalyzeDirReferencesForm.Designer.cs">
+      <DependentUpon>AnalyzeDirReferencesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Analyzer.cs" />
+    <Compile Include="AsmData.cs" />
+    <Compile Include="AssemblyEntry.cs" />
+    <Compile Include="AssemblyEntryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AssemblyEntryControl.Designer.cs">
+      <DependentUpon>AssemblyEntryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyStatusTextProvider.cs" />
+    <Compile Include="BindingRedirect.cs" />
+    <Compile Include="Descriptors\DirRefAnalyzer\MissingAssemblyDescriptor.cs" />
+    <Compile Include="Dialogs\ListFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licensing\ComparisonMatrix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licensing\ComparisonMatrix.Designer.cs">
+      <DependentUpon>ComparisonMatrix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProblemDescriptorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProblemDescriptorControl.Designer.cs">
+      <DependentUpon>ProblemDescriptorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Descriptors\AnalyzerResult.cs" />
+    <Compile Include="Descriptors\ProblemDescriptor.cs" />
+    <Compile Include="Descriptors\ProblemLevelBase.cs" />
+    <Compile Include="Descriptors\ProblemLevels.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IAnalyzer.cs" />
+    <Compile Include="Licensing\Eval.cs" />
+    <Compile Include="Licensing\Free.cs" />
+    <Compile Include="Licensing\Full.cs" />
+    <Compile Include="Licensing\LicenseManager.cs" />
+    <Compile Include="Licensing\LicenseTypeBase.cs" />
+    <Compile Include="Licensing\LicenseValidationException.cs" />
+    <Compile Include="Licensing\Security\SecureStorage.cs" />
+    <Compile Include="SocialBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SocialBar.Designer.cs">
+      <DependentUpon>SocialBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrashFinderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrashFinderForm.Designer.cs">
+      <DependentUpon>TrashFinderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DirectoryReferenceAnalyzerParameters.cs" />
+    <Compile Include="DirectoryScanner.cs" />
+    <Compile Include="DirectoryScannerOptions.cs" />
+    <Compile Include="DirectoryScanResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DirectoryScanResults.Designer.cs">
+      <DependentUpon>DirectoryScanResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DirReferenceAnalyzer.cs" />
+    <Compile Include="DirReferenceScanResult.cs" />
+    <Compile Include="ErrorDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorDetailsForm.Designer.cs">
+      <DependentUpon>ErrorDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorMessageBox.Designer.cs">
+      <DependentUpon>ErrorMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EulaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EulaForm.Designer.cs">
+      <DependentUpon>EulaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filtering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtering.Designer.cs">
+      <DependentUpon>Filtering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrameworkRedirectionsScanner.cs" />
+    <Compile Include="GacListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GACParserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GACWrap.cs" />
+    <Compile Include="HelpPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IPictureDispHost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibraryImport.cs" />
+    <Compile Include="MainDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainDialog.Designer.cs">
+      <DependentUpon>MainDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options.cs" />
+    <Compile Include="PathRedirection.cs" />
+    <Compile Include="PeHeaderReader.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressDialog.Designer.cs">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdRotator.resx">
+      <DependentUpon>AdRotator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalyzeDirReferencesForm.resx">
+      <DependentUpon>AnalyzeDirReferencesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssemblyEntryControl.resx">
+      <DependentUpon>AssemblyEntryControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ListFormBase.resx">
+      <DependentUpon>ListFormBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licensing\ComparisonMatrix.resx">
+      <DependentUpon>ComparisonMatrix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProblemDescriptorControl.resx">
+      <DependentUpon>ProblemDescriptorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SocialBar.resx">
+      <DependentUpon>SocialBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrashFinderForm.resx">
+      <DependentUpon>TrashFinderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DirectoryScanResults.resx">
+      <DependentUpon>DirectoryScanResults.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorDetailsForm.resx">
+      <DependentUpon>ErrorDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorMessageBox.resx">
+      <DependentUpon>ErrorMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EulaForm.resx">
+      <DependentUpon>EulaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtering.resx">
+      <DependentUpon>Filtering.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GacListForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GacListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GACParserDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GACParserDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpPage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>HelpPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressDialog.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSentMessageBox.resx">
+      <DependentUpon>ReportSentMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UpdateAvailableDialog.resx">
+      <DependentUpon>UpdateAvailableDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\AsmData.datasource" />
+    <None Include="Properties\DataSources\DirReferenceReportItem.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Redirection.cs" />
+    <Compile Include="ReportSentMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportSentMessageBox.Designer.cs">
+      <DependentUpon>ReportSentMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search.cs" />
+    <Compile Include="SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchForm.Designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SxsComponent.cs" />
+    <Compile Include="UpdateAvailableDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateAvailableDialog.Designer.cs">
+      <DependentUpon>UpdateAvailableDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateInfo.cs" />
+    <Compile Include="Web References\amberfish_errorreporting\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Win32Support.cs" />
+    <None Include="Web References\amberfish_errorreporting\errorreporting.wsdl" />
+    <None Include="Web References\amberfish_errorreporting\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="checkasm.ico" />
+    <None Include="Resources\list_16x14.png" />
+    <None Include="Resources\document_alt_stroke_12x16.png" />
+    <None Include="Resources\matrix-free.html" />
+    <None Include="Resources\matrix-eval.html" />
+    <None Include="Resources\keylock1.png" />
+    <None Include="Resources\keylock2.png" />
+    <None Include="Resources\keylock3.png" />
+    <None Include="Resources\keylock4.png" />
+    <None Include="Resources\reklamazajic.png" />
+    <None Include="Resources\banner3.png" />
+    <None Include="Resources\banner2.png" />
+    <None Include="Resources\banner1.png" />
+    <None Include="diskette.png" />
+    <None Include="symmetrical.png" />
+    <None Include="hierarchical.png" />
+    <None Include="Resources\License-Full.txt" />
+    <None Include="Web References\amberfish_errorreporting\ErrorReporting.disco" />
+    <None Include="circular.png" />
+    <None Include="app.config" />
+    <None Include="errorreport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://www.amberfish.net/ErrorReporting.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\amberfish_errorreporting\</RelPath>
+      <UpdateFromURL>http://www.amberfish.net/ErrorReporting.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CheckAsm_net_booring_checkasm_WS_Test</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="MyCanvas\Amberfish.Canvas.csproj">
+      <Project>{5556b43c-f1e9-4040-b9d1-18d1b3ba39a6}</Project>
+      <Name>Amberfish.Canvas</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

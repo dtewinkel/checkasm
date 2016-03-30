@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://checkasm.booring.net/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://checkasm.booring.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://checkasm.booring.net/">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RecordInstallationRequest">
+    <wsdl:part name="customerId" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="RecordInstallationResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="RecordStartRequest">
+    <wsdl:part name="customerId" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="RecordStartResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="StatsPortType">
+    <wsdl:operation name="RecordInstallation">
+      <documentation>Record new customer and installation time</documentation>
+      <wsdl:input message="tns:RecordInstallationRequest" />
+      <wsdl:output message="tns:RecordInstallationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RecordStart">
+      <documentation>Record Application Start</documentation>
+      <wsdl:input message="tns:RecordStartRequest" />
+      <wsdl:output message="tns:RecordStartResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StatsBinding" type="tns:StatsPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="RecordInstallation">
+      <soap:operation soapAction="http://checkasm.booring.net/errorreporting#RecordInstallation" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://checkasm.booring.net/errorreporting" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://checkasm.booring.net/errorreporting" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecordStart">
+      <soap:operation soapAction="http://checkasm.booring.net/errorreporting#RecordStart" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://checkasm.booring.net/errorreporting" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://checkasm.booring.net/errorreporting" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Stats">
+    <wsdl:port name="StatsPort" binding="tns:StatsBinding">
+      <soap:address location="http://checkasm.booring.net/stats.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

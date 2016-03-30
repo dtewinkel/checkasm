@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="Amberfish.Graph.ConnectedGraph"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Amberfish.Graph"
+             xmlns:shapes="clr-namespace:Amberfish.Graph.Shapes"
+             xmlns:models="clr-namespace:Amberfish.Graph.ViewModels"
+             xmlns:tools="clr-namespace:Amberfish.Graph.Tools"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <tools:ColorToBrushConverter x:Key="colorConverter"></tools:ColorToBrushConverter>
+       
+        <!-- defines the border style of a selected node -->
+        <Style TargetType="Rectangle" x:Key="NodeViewModelStyle">
+            <Setter Property="Stroke" Value="Black"></Setter>
+            <Setter Property="StrokeThickness" Value="1"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
+                    <Setter Property="Stroke" >
+                        <Setter.Value>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="StrokeThickness" Value="3"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <!-- Defines the style and behavior of an edge-->
+        <Style TargetType="shapes:ArrowLine" x:Key="EdgeViewModelStyle">
+            <Setter Property="Stroke" Value="Black"></Setter>
+            <Setter Property="Fill" Value="Black"></Setter>
+            <Setter Property="StrokeThickness" Value="2"></Setter>
+            <Setter Property="ArrowWidth" Value="5"></Setter>
+            <Setter Property="ArrowLength" Value="7"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
+                    <Setter Property="Stroke">
+                        <Setter.Value>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Fill">
+                        <Setter.Value>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="StrokeThickness" Value="2"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <!-- Data template for a node in the graph-->
+        <DataTemplate DataType="{x:Type models:NodeViewModel}">
+            <Grid  Width="{Binding Width}" Height="{Binding Height}">
+                <Grid.ColumnDefinitions>
+                    
+                    <ColumnDefinition Width="*"/>
+                    
+                </Grid.ColumnDefinitions>
+              
+                <Thumb DragDelta="Thumb_DragDelta" Grid.Column="1" DragStarted="Thumb_DragStarted">
+                    <Thumb.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Rectangle Fill="{Binding Color,Converter={StaticResource colorConverter}}" Cursor="Hand" Style="{StaticResource NodeViewModelStyle}">
+                                    <Rectangle.ToolTip>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock>Color:</TextBlock>
+                                            <TextBlock Text="{Binding Path=ColorName}" Margin="5,0,0,0"></TextBlock>
+                                        </StackPanel>
+                                    </Rectangle.ToolTip>
+                                </Rectangle>
+                                <TextBlock Text="{Binding Text}" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" Foreground="{Binding TextColor,Converter={StaticResource colorConverter}}">
+                                    <TextBlock.ToolTip>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock>Color:</TextBlock>
+                                            <TextBlock Text="{Binding Path=ColorName}" Margin="5,0,0,0"></TextBlock>
+                                        </StackPanel>
+                                    </TextBlock.ToolTip>
+                                </TextBlock>
+                            </Grid>
+                        </ControlTemplate>
+                    </Thumb.Template>
+                </Thumb>
+               
+            </Grid>
+        </DataTemplate>
+        <!-- Data template for an edge in the graph-->
+        <DataTemplate DataType="{x:Type models:EdgeViewModel}">
+            <shapes:ArrowLine Style="{StaticResource EdgeViewModelStyle}" X1="{Binding X1}" Y1="{Binding Y1}" X2="{Binding X2}" Y2="{Binding Y2}" MouseLeftButtonUp="ArrowLine_MouseLeftButtonUp" Cursor="Hand"></shapes:ArrowLine>
+        </DataTemplate>
+    </UserControl.Resources>
+    <UserControl.Content>
+        <Grid>
+            <ItemsControl ItemsSource="{Binding Edges}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+            <ItemsControl ItemsSource="{Binding Nodes}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Canvas.Left" Value="{Binding X}" />
+                        <Setter Property="Canvas.Top" Value="{Binding Y}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+            </ItemsControl>
+        </Grid>
+    </UserControl.Content>
+</UserControl>

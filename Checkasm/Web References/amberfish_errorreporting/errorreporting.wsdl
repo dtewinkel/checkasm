@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://amberfish.net/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://amberfish.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://amberfish.net/">
+      <s:element name="UploadFilePart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="append" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="bytes" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="length" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFilePartResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFilePath">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFilePathResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFilePathResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReportBug">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReportBugResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UploadFilePartSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadFilePart" />
+  </wsdl:message>
+  <wsdl:message name="UploadFilePartSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadFilePartResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFilePathSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFilePath" />
+  </wsdl:message>
+  <wsdl:message name="GetFilePathSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFilePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportBugSoapIn">
+    <wsdl:part name="parameters" element="tns:ReportBug" />
+  </wsdl:message>
+  <wsdl:message name="ReportBugSoapOut">
+    <wsdl:part name="parameters" element="tns:ReportBugResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ErrorReportingSoap">
+    <wsdl:operation name="UploadFilePart">
+      <wsdl:input message="tns:UploadFilePartSoapIn" />
+      <wsdl:output message="tns:UploadFilePartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFilePath">
+      <wsdl:input message="tns:GetFilePathSoapIn" />
+      <wsdl:output message="tns:GetFilePathSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportBug">
+      <wsdl:input message="tns:ReportBugSoapIn" />
+      <wsdl:output message="tns:ReportBugSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ErrorReportingSoap" type="tns:ErrorReportingSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadFilePart">
+      <soap:operation soapAction="http://amberfish.net/UploadFilePart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilePath">
+      <soap:operation soapAction="http://amberfish.net/GetFilePath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportBug">
+      <soap:operation soapAction="http://amberfish.net/ReportBug" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ErrorReportingSoap12" type="tns:ErrorReportingSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadFilePart">
+      <soap12:operation soapAction="http://amberfish.net/UploadFilePart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilePath">
+      <soap12:operation soapAction="http://amberfish.net/GetFilePath" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportBug">
+      <soap12:operation soapAction="http://amberfish.net/ReportBug" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ErrorReporting">
+    <wsdl:port name="ErrorReportingSoap" binding="tns:ErrorReportingSoap">
+      <soap:address location="http://www.amberfish.net/ErrorReporting.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ErrorReportingSoap12" binding="tns:ErrorReportingSoap12">
+      <soap12:address location="http://www.amberfish.net/ErrorReporting.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
